@@ -97,6 +97,13 @@ header h2 {
     color: var(--secondary);
 }
 
+footer {
+	margin-top: 1rem;
+	border-top: 1px solid var(--primary);
+	padding-top: 1rem;
+	text-align: center;
+}
+
 #foreword {
     padding: 1rem 0rem;
     color: var(--tertiary);
@@ -110,6 +117,10 @@ header h2 {
     font-weight: 600;
     font-variant: small-caps;
     padding-bottom: 0.5rem;
+}
+
+.card h1:last-of-type {
+	padding: 0px;
 }
 
 .card p, #theme-grid {
