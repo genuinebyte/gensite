@@ -1,5 +1,7 @@
-window.onload = function load() {
-    changeTheme(localStorage.getItem("theme"));
+if (!window.onload) {
+	window.onload = function load() {
+    	changeTheme(localStorage.getItem("theme"));
+	}
 }
 
 function changeTheme(theme) {
