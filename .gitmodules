@@ -1,4 +1,4 @@
 [submodule "chemtool"]
 	path = chemtool
-	url = git@github.com:genuinebyte/chemtool
+	url = https://github.com/genuinebyte/chemtool
 	branch = gensite
