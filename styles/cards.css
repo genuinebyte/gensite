@@ -1,4 +1,4 @@
-@media (max-width: calc(44rem - 1px)) {
+@media (max-width: 44rem) {
     main {
         width: var(--mobile-width);
 		margin: 0.5rem auto;
