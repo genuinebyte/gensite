@@ -17,3 +17,8 @@
 #posts div {
 	margin-top: 0.5rem;
 }
+
+#posts p {
+	margin-top: 0.5rem;
+	line-height: 1.3;
+}
