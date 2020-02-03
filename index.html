@@ -3,57 +3,60 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Gensite</title>
 		<link rel="stylesheet" href="/styles/master.css">
+		<link rel="stylesheet" href="/styles/single.css">
 		<link rel="stylesheet" href="/styles/cards.css">
+		<link rel="stylesheet" href="/styles/postlist.css">
 	</head>
 	<body>
+		<header>
+			<h1 class="smallcap">Genuinebyte</h1>
+			<h2>Brad Alfirevic</h2>
+		</header>
 		<main>
-			<header>
-				<h1 style="font-variant: small-caps">Genuinebyte</h1>
-				<h2>Brad Alfirevic</h2>
-			</header>
-			<section id="foreword">
-				<p>
-					Programmer from the US. Reader. Writer. Electronics Hobbyist. Worried about
-					security. Typically do C, Rust and JS. I like learning, parsing files and
-					managing servers.
-				</p>
-			</section>
 			<section id="grid">
-				<section class="card">
+				<div class="card">
 					<h1>Social</h1>
-					<p>
-						<a href="https://twitter.com/genuinebyte">Twitter</a>
-						Rambling about tech
-					</p>
 					<p>
 						<a href="https://keybase.io/genuinebyte">Keybase</a>
 						Verify my identity
 					</p>
 					<p>
+						<a href="https://git.sr.ht/~genbyte">Sourcehut</a>
+						Not GitHub
+					</p>
+					<p>
 						<a href="https://github.com/genuinebyte">Github</a>
 						Judge my code
 					</p>
-				</section>
-				<section class="card">
+					<p>
+						<a href="https://twitter.com/genuinebyte">Twitter</a>
+						Tech ramblings
+					</p>
+				</div>
+				<div class="card">
 					<h1>Tools</h1>
 					<p>
 						<a href="chemtool">Chemtool</a>
 						for the modern chemist
-				</section>
-				<section class="card long-card">
-					<h1>Words</h1>
-					<p>
-						<a href="wisewords">WiseWords</a>
-						Words said near me that I think are pretty smart
-					</p>
-				</section>
-				<section class="card long-card">
+				</div>
+				<div class="card long-card">
 					<h1>Libraries</h1>
 					<p>
 						<a href="https://github.com/genuinebyte/confindent">Confindent</a>
 						A Rust crate for configuration in an indented format
 					</p>
-				</section>
+				</div>
+			</section>
+			<section id="posts">
+				<h1>Words</h1>
+				<!-- Template --!>
+				<!-- {@template post}
+				<div>
+					<h2>[@date]</h2>
+					<a href="[@date]">[@title]</a>
+					<p>[@content]</p>
+				</div>
+				{@end-template post} --!>
 			</section>
 		</main>
 	</body>

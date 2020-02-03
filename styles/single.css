@@ -1,0 +1,26 @@
+@media (max-width: 44rem) {
+	header {
+		width: var(--mobile-width);
+		margin-top: 0.5rem;
+	}
+
+	main {
+		width: var(--mobile-width);
+		margin: 0px 2vw 0.5rem 2vw;
+	}
+}
+@media (min-width: 44rem) {
+	:root {
+		--content-width: 40rem;
+	}
+
+	header {
+		width: var(--content-width);
+		margin-top: 2.5rem;
+	}
+
+	main {
+		width: var(--content-width);
+		margin: 0px 2vw;
+	}
+}

@@ -1,11 +1,7 @@
 @media (max-width: 44rem) {
-	main {
-		width: var(--mobile-width);
-		margin: 0.5rem auto;
-	}
-
 	#grid {
 		display: grid;
+		padding-top: 1rem;
 		grid-template-columns: 1fr;
 	}
 
@@ -14,11 +10,6 @@
 	}
 }
 @media (min-width: 44rem) {
-	main {
-		width: 40rem;
-		margin: 2.5rem 2vw 0px 2vw;
-	}
-
 	#grid {
 		display: grid;
 		padding-top: 1rem;
@@ -43,7 +34,7 @@
 	border-bottom: 1px solid var(--headcolor);
 }
 
-.card h1 {
+main h1 {
 	font-size: 1.2rem;
 	font-weight: 600;
 	font-variant: small-caps;
@@ -54,7 +45,7 @@
 	padding: 0px;
 }
 
-.card p {
+main p {
 	font-size: 1.1rem;
 	color: var(--textcolor);
 	line-height: 1.5;

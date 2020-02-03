@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark), not (prefers-color-scheme: no-preference) {
 	:root {
-		--headcolor: #FFFFFF;
+		--headcolor: #EEEEEE;
 		--textcolor: #CCCCCC;
 		--textcolor-alt: #999999;
 		--backcolor: #000000;
@@ -37,17 +37,20 @@ html {
 body {
     width: 100%;
     text-align: center;
+
+    font-family: sans-serif;
 }
 
 main {
     display: inline-block;
     text-align: left;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header {
-    padding-bottom: 1rem;
+	display: inline-block;
+    text-align: left;
+
+	padding-bottom: 1rem;
     border-bottom: 1px solid var(--headcolor);
 }
 
@@ -89,4 +92,8 @@ input[type=text] {
 
 ::placeholder {
 	color: var(--textcolor-alt);
+}
+
+.smallcap {
+	font-variant: small-caps;
 }

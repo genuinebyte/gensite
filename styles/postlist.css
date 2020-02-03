@@ -1,0 +1,19 @@
+#posts {
+	margin-top: 1rem;
+}
+
+#posts h1 {
+	padding: 0px;
+}
+
+#posts h2 {
+	font-size: 0.9rem;
+}
+
+#posts a {
+	font-size: 1.1rem;
+}
+
+#posts div {
+	margin-top: 0.5rem;
+}
