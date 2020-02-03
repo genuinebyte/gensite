@@ -1,13 +1,16 @@
+main {
+	margin: 2rem 0px;
+}
+
 header {
 	border: 0px;
 }
 
-article {
+/*article {
 	text-align: justify;
-}
+}*/
 
 p {
-	font-size: 1.2rem;
 	padding-bottom: 1rem;
 	line-height: 1.4;
 }

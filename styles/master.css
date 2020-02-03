@@ -1,5 +1,5 @@
 :root {
-	--mobile-width: 96vw;
+	--mobile-width: 92vw;
 }
 
 @media (prefers-color-scheme: light) {
