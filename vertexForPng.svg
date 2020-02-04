@@ -1,0 +1,9 @@
+<svg version="1.1"
+     baseProfile="full"
+     width="256"
+     height="256"
+     xmlns="http://www.w3.org/2000/svg">
+
+	 <path d="M 32 160 A 64 64 0 0 0 96 224 M 29 166.5 L 224 32 M 89.5 227 L 224 32"
+	       stroke="white" fill="red" fill-opacity="0" stroke-width="16"/>
+</svg>
