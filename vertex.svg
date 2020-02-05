@@ -1,9 +1,16 @@
 <svg version="1.1"
-     baseProfile="full"
-     width="128"
-     height="128"
-     xmlns="http://www.w3.org/2000/svg">
+	baseProfile="full"
+	width="256"
+	height="256"
+	xmlns="http://www.w3.org/2000/svg">
 
-	 <path d="M 16 80 A 32 32 0 0 0 48 112 M 14.5 83.25 L 112 16 M 44.75 113.5 L 112 16"
-	       stroke="white" fill="red" fill-opacity="0" stroke-width="12"/>
+	<path d="M 40, 160 A 52 52 0 0 0 96 216"
+		stroke="black" stroke-width="1" fill="black" fill-opacity="1" />
+	<polyline points="40, 160 195.57, 60.42 96, 219"
+		stroke="black" stroke-width="1" fill="black" fill-opacity="1" />
+	<path d="M 32 160 A 64 64 0 0 0 96 224"
+	 	stroke="white" stroke-width="16" fill="white" fill-opacity="0" />
+	<!-- Stroke set to zero, Only Fill -->
+	<polyline points="24, 160 224, 32 96, 232 96, 216 195.57, 60.43 40, 160 24, 160"
+		stroke="white" stroke-width="0" fill="white" fill-opacity="1" />
 </svg>
