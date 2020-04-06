@@ -14,9 +14,9 @@ class GeoHash {
 		this.firstFraction = this.hexToFrac(firstHalf);
 		this.secondFraction = this.hexToFrac(secondHalf);
 
-		this.targetLatitude = this.truncateDecimals(
+		this.targetLatitude = truncateDecimals(
 			this.graticulLatitude + (this.graticulLatitude > 0 ? this.firstFraction : this.firstFraction * -1), 5);
-		this.targetLongitude = this.truncateDecimals(
+		this.targetLongitude = truncateDecimals(
 			this.graticulLongitude + (this.graticulLongitude > 0 ? this.secondFraction : this.secondFraction * -1), 5);
 
 		return true;
@@ -60,17 +60,6 @@ class GeoHash {
 		req.send();
 	}
 
-	// https://stackoverflow.com/a/9232092/10354782
-	truncateDecimals(num, digits) {
-		var numS = num.toString(),
-			decPos = numS.indexOf('.'),
-			substrLength = decPos == -1 ? numS.length : 1 + decPos + digits,
-			trimmedResult = numS.substr(0, substrLength),
-			finalResult = isNaN(trimmedResult) ? 0 : trimmedResult;
-
-		return parseFloat(finalResult);
-	}
-
 	hexToFrac(hex) {
 		let ret = 0;
 		while (hex.length != 0) {
@@ -81,6 +70,94 @@ class GeoHash {
 
 		return ret;
 	}
+}
+
+class LocationWatcher {
+	constructor(success, error, tick, isHighAccuracy) {
+		this.successCallback = success;
+		this.errorCallback = error;
+		this.tickCallback = tick;
+		this.isHighAccuracy = isHighAccuracy;
+	}
+
+	watch() {
+		function success(pos) {
+			this.latitude = pos.coords.latitude;
+			this.longitude = pos.coords.longitude;
+			this.age = 0;
+			this.successCallback(this);
+			this.tickCallback(this);
+		}
+
+		function error(err) {
+			if (err.code == err.TIMEOUT) {
+				this.age++;
+				this.tickCallback(this);
+			} else {
+				this.errorCallback(this);
+			}
+		}
+
+		this.watcher = navigator.geolocation.watchPosition(
+			success.bind(this),
+			error.bind(this),
+			{"enableHighAccuracy": this.isHighAccuracy, "timeout": 1000}
+		);
+	}
+
+	stop() {
+		this.latitude = 0;
+		this.longitude = 0;
+		this.age = -1;
+		navigator.geolocation.clearWatch(this.watcher);
+	}
+
+	distanceKm(lat, lon) {
+		return this.getDistanceFromLatLonInKm(this.latitude, this.longitude, lat, lon);
+	}
+
+	distanceMi(lat, lon) {
+		return  truncateDecimals(this.distanceKm(lat, lon) * 0.6213712, 2);
+	}
+
+	angle(lat, lon) {
+		let dot = (lat*this.latitude) + (lon*this.longitude);
+			console.log(dot);
+		let mags = Math.sqrt(lat*lat + lon*lon) * Math.sqrt(this.latitude*this.latitude + this.longitude*this.longitude);
+			console.log(mags);
+
+		return Math.acos(dot/mags);
+	}
+
+	// https://stackoverflow.com/a/27943/10354782
+	getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+		var dLon = this.deg2rad(lon2-lon1);
+		var a =
+			Math.sin(dLat/2) * Math.sin(dLat/2) +
+ 			Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
+			Math.sin(dLon/2) * Math.sin(dLon/2);
+
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		var d = R * c; // Distance in km
+		return d;
+	}
+
+	deg2rad(deg) {
+		return deg * (Math.PI/180)
+	}
+}
+
+// https://stackoverflow.com/a/9232092/10354782
+function truncateDecimals(num, digits) {
+	var numS = num.toString(),
+		decPos = numS.indexOf('.'),
+		substrLength = decPos == -1 ? numS.length : 1 + decPos + digits,
+		trimmedResult = numS.substr(0, substrLength),
+		finalResult = isNaN(trimmedResult) ? 0 : trimmedResult;
+
+	return parseFloat(finalResult);
 }
 
 window.onload = function winload() {
@@ -111,7 +188,6 @@ function calcHash() {
 	if (window.geohash.calcTarget()) {
 		document.getElementById('tlat').innerHTML = geohash.targetLatitude;
 		document.getElementById('tlong').innerHTML = geohash.targetLongitude;
-		console.log("Ajh");
 	} else {
 		alert("Failed to calculate target coordinates!");
 	}
@@ -121,7 +197,6 @@ function getLocation() {
 	function success() {
 		document.getElementById("lat").value = geohash.latitude;
 		document.getElementById("long").value = geohash.longitude;
-		alert("Location retreived");
 	}
 
 	function error() {
@@ -132,21 +207,31 @@ function getLocation() {
 }
 
 function watchPos(isAccurate) {
-	function success(pos) {
-		document.getElementById("nlat").innerHTML = geohash.truncateDecimals(pos.coords.latitude, 5);
-		document.getElementById("nlong").innerHTML = geohash.truncateDecimals(pos.coords.longitude, 5);
+	function success(lwatcher) {
+		document.getElementById("nlat").innerHTML = truncateDecimals(lwatcher.latitude, 5);
+		document.getElementById("nlong").innerHTML = truncateDecimals(lwatcher.longitude, 5);
+
+		if (geohash.targetLatitude != 0) {
+			document.getElementById("crowflies").innerHTML =
+				lwatcher.distanceMi(geohash.targetLatitude, geohash.targetLongitude);
+
+			let x = geohash.targetLatitude - lwatcher.latitude;
+			let y = geohash.targetLongitude - lwatcher.longitude;
+			let angle = ((Math.atan(-x/y) * (180/Math.PI)));
+			document.getElementById("angle").innerHTML = "x: " + x + "y: " + y + " | " + angle;
+			document.getElementById("direction").style.transform = "rotate(" + (angle) + "deg)";
+		}
 	}
 
-	function error(error) {
-		if (error.code == error.TIMEOUT) {
-			return;
-		}
-
+	function error(lwatcher) {
 		alert("Failed to get your location");
 	}
 
-	navigator.geolocation.watchPosition(success, error, {
-		'enableHighAccuracy': isAccurate,
-		'timeout': 1000
-	});
+	function tick(lwatcher) {
+		let age = lwatcher.age;
+		document.getElementById("locage").innerHTML = age == 0 ? "now" : age + " seconds";
+	}
+
+	window.lwatcher = new LocationWatcher(success, error, tick, isAccurate);
+	lwatcher.watch();
 }

@@ -1,17 +1,29 @@
-.flex {
+.pair {
 	display: flex;
 }
 
-.pair {
+.pair :nth-child(n){
 	font-size: 2rem;
 	flex-grow: 1;
 }
 
-.flex .pair:nth-child(2n) {
+.pair :nth-child(2n) {
 	text-align: right;
 }
 
 .grid-title {
 	font-size: 1.5rem;
 	margin-top: 1rem;
+}
+
+#locage {
+	display: inline-block;
+	color: var(-textcolor-alt);
+}
+
+#direction {
+	font-weight: bold;
+	text-align: center;
+	font-size: 5rem;
+	transform: rotate(0deg);
 }

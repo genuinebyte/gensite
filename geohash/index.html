@@ -13,11 +13,12 @@
 		<script src="geohash.js"></script>
 	</head>
 	<body>
-		<main>
+		<article>
 			<header>
 				<h1>GeoHashTool</h1>
 				<h2>A utility for <a href="https://www.xkcd.com/426/">geohashing</a></h2>
 			</header>
+			<main>
 			<h1 class="grid-title">Starting Numbers</h1>
 			<section id="grid">
 				<div class="card">
@@ -46,17 +47,26 @@
 				</div>
 				<div class="card long-card">
 					<h1>Target</h1>
-					<div class="flex">
-						<div id="tlat" class="pair">00.00000</div>
-						<div id="tlong" class="pair">00.00000</div>
+					<div class="pair">
+						<div id="tlat">00.00000</div>
+						<div id="tlong">00.00000</div>
 					</div>
-					<h1>Now Numbers</h1>
-					<div class="flex">
-						<div id="nlat" class="pair">00.00000</div>
-						<div id="nlong" class="pair">00.00000</div>
+					<h1 style="display: inline-block">Now Numbers</h1>
+					<div id="locage"></div>
+					<div class="pair">
+						<div id="nlat">00.00000</div>
+						<div id="nlong">00.00000</div>
 					</div>
+					<h1>As The Crow Flies</h1>
+					<div id="crowflies" style="font-size: 2rem">00.00mi</div>
+					<h1>Angle</h1>
+					<div id="angle">00</div>
+				</div>
+				<div class="card long-card">
+					<div id="direction">&larr;</div>
 				</div>
 			</section>
 		</main>
+		</article>
 	</body>
 </html>
