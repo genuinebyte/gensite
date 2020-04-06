@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		<title>GeoHashTool</title>
+		<link rel="icon" type="image/svg+xml" href="/vertex.svg">
+		<link rel="icon" type="image/png" href="/vertex.png">
+		<link rel="stylesheet" href="/styles/master.css">
+		<link rel="stylesheet" href="/styles/single.css">
+		<link rel="stylesheet" href="/styles/cards.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="md5.js"></script>
+		<script src="geohash.js"></script>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>GeoHashTool</h1>
+				<h2>A utility for <a href="https://www.xkcd.com/426/">geohashing</a></h2>
+			</header>
+			<h1 class="grid-title">Starting Numbers</h1>
+			<section id="grid">
+				<div class="card">
+					<h1>Latitude</h1>
+					<input type="text" id="lat" placeholder="00.0000">
+				</div>
+				<div class="card">
+					<h1>Longitude</h1>
+					<input type="text" id="long" placeholder="00.0000">
+				</div>
+				<div class="card long-card">
+					<input type="button" value="Use Current Location" onclick="getLocation()">
+				</div>
+				<div class="card">
+					<h1>ISO Date</h1>
+					<input type="text" id="date" placeholder="1970-01-01">
+				</div>
+				<div class="card">
+					<h1><a id="dowlink">DOW Open</a></h1>
+					<input type="text" id="dow" placeholder="00000.00">
+				</div>
+				<div class="card long-card">
+					<input type="button" value="Calculate" onclick="calcHash()">
+					<input type="button" value="Watch Position" onclick="watchPos(false)" style="margin-top: 0.5rem">
+					<input type="button" value="High Accuracy Watch (Battery Draining)" onclick="watchPos(true)" style="margin-top: 0.5rem">
+				</div>
+				<div class="card long-card">
+					<h1>Target</h1>
+					<div class="flex">
+						<div id="tlat" class="pair">00.00000</div>
+						<div id="tlong" class="pair">00.00000</div>
+					</div>
+					<h1>Now Numbers</h1>
+					<div class="flex">
+						<div id="nlat" class="pair">00.00000</div>
+						<div id="nlong" class="pair">00.00000</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

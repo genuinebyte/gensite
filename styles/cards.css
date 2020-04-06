@@ -34,15 +34,10 @@
 	border-bottom: 1px solid var(--headcolor);
 }
 
-main h1 {
+.card h1 {
 	font-size: 1.2rem;
 	font-weight: 600;
 	font-variant: small-caps;
-	padding-bottom: 0.5rem;
-}
-
-.card h1:last-of-type {
-	padding: 0px;
 }
 
 main p {
