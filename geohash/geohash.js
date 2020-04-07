@@ -78,12 +78,20 @@ class LocationWatcher {
 		this.errorCallback = error;
 		this.tickCallback = tick;
 		this.isHighAccuracy = isHighAccuracy;
+		this.headings = [];
 	}
 
 	watch() {
 		function success(pos) {
 			this.latitude = pos.coords.latitude;
 			this.longitude = pos.coords.longitude;
+			let heading = pos.coords.heading;
+
+			this.headings.push(heading);
+			if (!isNaN(heading) && this.headings.length > 4) {
+				this.headings.splice(0, 1);
+			}
+
 			this.age = 0;
 			this.successCallback(this);
 			this.tickCallback(this);
@@ -91,7 +99,7 @@ class LocationWatcher {
 
 		function error(err) {
 			if (err.code == err.TIMEOUT) {
-				this.age++;
+				this.age += 0.25;
 				this.tickCallback(this);
 			} else {
 				this.errorCallback(this);
@@ -101,8 +109,17 @@ class LocationWatcher {
 		this.watcher = navigator.geolocation.watchPosition(
 			success.bind(this),
 			error.bind(this),
-			{"enableHighAccuracy": this.isHighAccuracy, "timeout": 1000}
+			{"enableHighAccuracy": this.isHighAccuracy, "timeout": 250}
 		);
+	}
+
+	getHeading() {
+		let sum = 0;
+		for (let i = 0; i < this.headings.length; ++i) {
+			sum += this.headings[i];
+		}
+
+		return sum/this.headings.length;
 	}
 
 	stop() {
@@ -217,8 +234,8 @@ function watchPos(isAccurate) {
 
 			let x = geohash.targetLatitude - lwatcher.latitude;
 			let y = geohash.targetLongitude - lwatcher.longitude;
-			let angle = ((Math.atan(-x/y) * (180/Math.PI)));
-			document.getElementById("angle").innerHTML = "x: " + x + "y: " + y + " | " + angle;
+			let angle = ((Math.atan(x/y) * (180/Math.PI))) + (90 + lwatcher.getHeading());
+			document.getElementById("angle").innerHTML = "x: " + x + "y: " + y + " | " + angle + " [" + lwatcher.getHeading() + "]";
 			document.getElementById("direction").style.transform = "rotate(" + (angle) + "deg)";
 		}
 	}
