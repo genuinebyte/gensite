@@ -30,7 +30,7 @@
 					<input type="text" id="long" placeholder="00.0000">
 				</div>
 				<div class="card long-card">
-					<input type="button" value="Use Current Location" onclick="getLocation()">
+					<input type="button" value="Use Current Location" onclick="geoui.getCurrentLocation()">
 				</div>
 				<div class="card">
 					<h1>ISO Date</h1>
@@ -41,9 +41,9 @@
 					<input type="text" id="dow" placeholder="00000.00">
 				</div>
 				<div class="card long-card">
-					<input type="button" value="Calculate" onclick="calcHash()">
-					<input type="button" value="Watch Position" onclick="watchPos(false)" style="margin-top: 0.5rem">
-					<input type="button" value="High Accuracy Watch (Battery Draining)" onclick="watchPos(true)" style="margin-top: 0.5rem">
+					<input type="button" value="Calculate" onclick="geoui.calculateHash()">
+					<input type="button" value="Watch Position" onclick="geoui.watchLocation(false)" style="margin-top: 0.5rem">
+					<input type="button" value="High Accuracy Watch" onclick="geoui.watchLocation(true)" style="margin-top: 0.5rem">
 				</div>
 				<div class="card long-card">
 					<h1>Target</h1>
@@ -57,14 +57,59 @@
 						<div id="nlat">00.00000</div>
 						<div id="nlong">00.00000</div>
 					</div>
-					<h1>As The Crow Flies</h1>
-					<div id="crowflies" style="font-size: 2rem">00.00mi</div>
-					<h1>Angle</h1>
+					<table>
+						<thead>
+						<tr>
+							<th>Direction</th>
+							<th>As The Crow Flies</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Center</td>
+							<td id="crow">0.00</td>
+						</tr>
+						<tr>
+							<td>North</td>
+							<td id="crowN">0.00</td>
+						</tr>
+						<tr>
+							<td>NorthEast</td>
+							<td id="crowNE">0.00</td>
+						</tr>
+						<tr>
+							<td>East</td>
+							<td id="crowE">0.00</td>
+						</tr>
+						<tr>
+							<td>SouthEast</td>
+							<td id="crowSE">0.00</td>
+						</tr>
+						<tr>
+							<td>South</td>
+							<td id="crowS">0.00</td>
+						</tr>
+						<tr>
+							<td>SouthWest</td>
+							<td id="crowSW">0.00</td>
+						</tr>
+						<tr>
+							<td>West</td>
+							<td id="crowW">0.00</td>
+						</tr>
+						<tr>
+							<td>NorthWest</td>
+							<td id="crowNW">0.00</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+					<!--<h1>Angle</h1>
 					<div id="angle">00</div>
 				</div>
 				<div class="card long-card">
 					<div id="direction">&larr;</div>
-				</div>
+				</div>--!>
 			</section>
 		</main>
 		</article>

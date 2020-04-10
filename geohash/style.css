@@ -27,3 +27,28 @@
 	font-size: 5rem;
 	transform: rotate(0deg);
 }
+
+table {
+	width: 100%;
+	font-size: 1.4rem;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+thead th:nth-child(1) {
+	width: 40%;
+}
+
+thead th:nth-child(2) {
+	width: 60%;
+}
+
+th {
+	font-size: 1.4rem;
+	font-weight: 600;
+	font-variant: small-caps;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: var(--backcolor-alt);
+}
