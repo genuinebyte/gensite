@@ -1,16 +1,16 @@
 @media (max-width: 44rem) {
-	#grid {
+	.grid {
 		display: grid;
 		padding-top: 1rem;
 		grid-template-columns: 1fr;
 	}
 
-	#grid section:last-of-type {
+	.grid section:last-of-type {
 		border-bottom: 0px solid var(--headcolor);
 	}
 }
 @media (min-width: 44rem) {
-	#grid {
+	.grid {
 		display: grid;
 		padding-top: 1rem;
 		grid-template-columns: 1fr 1fr;
@@ -21,17 +21,8 @@
 	}
 }
 
-#grid {
+.grid {
 	grid-gap: 1rem;
-}
-
-#foreword {
-	padding: 1rem 0rem;
-	margin-bottom: 1rem;
-	color: var(--textcolor-alt);
-	font-size: 1.2rem;
-	text-align: justify;
-	border-bottom: 1px solid var(--headcolor);
 }
 
 .card h1 {
