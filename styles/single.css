@@ -9,12 +9,12 @@
 	}
 
 	header {
-		width: var(--mobile-width);
+		width: 100%;
 		margin-top: 0.5rem;
 	}
 
 	main {
-		width: var(--mobile-width);
+		width: 100%;
 		margin: 0px auto 0.5rem auto;
 	}
 }
@@ -33,11 +33,11 @@
 	}
 
 	header {
-		width: var(--content-width);
+		width: 100%;
 		margin-top: 2.5rem;
 	}
 
 	main {
-		width: var(--content-width);
+		width: 100%;
 	}
 }

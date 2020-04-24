@@ -87,7 +87,25 @@ a.hidden {
 }
 
 input[type=text] {
+	background-color: var(--backcolor);
+	color: var(--textcolor);
+	font-size: 1.2rem;
+	border: 0px solid var(--textcolor);
 	border-width: 0px 0px 1px 0px;
+	padding: .1rem;
+	width: 100%;
+}
+
+input[type=button] {
+	background-color: var(--backcolor);
+	color: var(--textcolor);
+	font-size: 1.2rem;
+	width: 100%;
+	border: 1px solid var(--textcolor);
+}
+
+input[type=button]:active {
+	background-color: var(--backcolor-alt);
 }
 
 ::placeholder {
