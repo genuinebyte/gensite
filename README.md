@@ -1,4 +1,10 @@
 # gensite
+[todo.sr.ht][tickets]
+
+Todo is for the gensite and chemtool repositories.
+
+[tickets]: https://todo.sr.ht/~genbyte/gensite
+
 [Clone with submodules](https://stackoverflow.com/a/4438292)  
 `git clone --recurse-submodules -j8 git@git.sr.ht:~genbyte/gensite`
 
@@ -11,3 +17,11 @@ not then it is definitely one of [these][icon-tree].
 
 [circle]: https://git.sr.ht/~sircmpwn/core.sr.ht/tree/master/srht/static/icons/circle.svg
 [icon-tree]: https://git.sr.ht/~sircmpwn/core.sr.ht/tree/master/srht/static/icons
+
+### Hosted Projects
+| Project | Blurb |
+| ------- | ----- |
+| [chemtool][chemtool-repo] | A web tool to help with my college chemistry assignments |
+| geohash | A web tool to get the minesweeper graticules for the day |
+
+[chemtool-repo]: https://git.sr.ht/~genbyte/chemtool
