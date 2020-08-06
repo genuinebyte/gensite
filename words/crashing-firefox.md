@@ -28,8 +28,8 @@ location access, you'll be flooded with alerts faster than you can close them.
 I recommend being sure that "Don't ask me again" is *unchecked*, unless you want
 to spend a non-small amount of time fighting the cache to get your browser back.
 If you're on Android, Firefox will crash if you don't manage to close it first.
-The desktop client seems to handle it better, it collects the alert windows
-until you close the tab.
+The desktop client seems to handle it better, collecting the alert windows until
+you close the tab.
 
 I of course reported the bug, the ticket of which you can find [here][bugzilla],
 but it was marked WONTFIX. I found it pretty interesting, so I thought it share
