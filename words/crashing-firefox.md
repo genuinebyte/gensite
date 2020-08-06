@@ -3,7 +3,7 @@ accidentally found a denial-of-service in Firefox.
 
 I was trying to get close-to-live updates so I could rotate an arrow to point
 at a specific location. While I never got this code working, it required
-coordinates that updated really, *really* fast. So, like anyone who hates their
+coordinates that updated really, *really* quickly. So, like anyone who hates their
 poor phone's battery, I set the timeout for `Geolocation.watchPosition` to 100.
 
 [geoapi]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
@@ -23,7 +23,7 @@ that, for whatever reason, there is no limit to the number of concurrent popups
 one can create by harnessing the great power of the Geolocation API. That is, if
 you're on Firefox; Chrome seems fine.
 
-If you're on Firefox and you click the button bellow, making sure to allow
+If you're on Firefox and you click the button below, making sure to allow
 location access, you'll be flooded with alerts faster than you can close them.
 I recommend being sure that "Don't ask me again" is *unchecked*, unless you want
 to spend a non-small amount of time fighting the cache to get your browser back.
@@ -32,7 +32,7 @@ The desktop client seems to handle it better, collecting the alert windows until
 you close the tab.
 
 I of course reported the bug, the ticket of which you can find [here][bugzilla],
-but it was marked WONTFIX. I found it pretty interesting, so I thought it share
+but it was marked WONTFIX. I found it pretty interesting, so I thought I'd share
 it with you, dear interneter. I hope you found this at least semi-interesting,
 until next time!
 
