@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Crashing Firefox</title>
+		<link rel="icon" type="image/svg+xml" href="/vertex.svg">
+		<link rel="icon" type="image/png" href="/vertex.png">
+		<link rel="stylesheet" href="/styles/master.css">
+		<link rel="stylesheet" href="/styles/single.css">
+		<link rel="stylesheet" href="/styles/post.css">
+		<script src="/scripts/ffcrash.js"></script>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h1>Crashing Firefox</h1>
+				<h2>Published 2020-08-06 on <a href="/">genbyte.dev</a></h2>
+			</header>
+		<main>
+<p>A few months ago I was playing with the <a href='https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API'>Geolocation API</a>, and I accidentally found a denial-of-service in Firefox.</p>
+
+<p>I was trying to get close-to-live updates so I could rotate an arrow to point at a specific location. While I never got this code working, it required coordinates that updated really, <em>really</em> fast. So, like anyone who hates their poor phone&#8217;s battery, I set the timeout for <code>Geolocation.watchPosition</code> to 100.</p>
+
+<p>I didn&#8217;t see an issue with this. <code>watchPosition</code> is used to get GPS coordinates repeatedly, waiting <code>timeout</code> milliseconds before yelling &quot;Where am I?!&quot; again. In this case, it annoys my tiny GPS ten times a second. Since this wasn&#8217;t a serious project and it was in early development, the error &quot;correction&quot; code was essentially &quot;Oh? A bad thing happened? Scream it at the user!&quot;.</p>
+
+<p>All modern browsers have measures to stop a webpage from flooding the client with alerts and creating a sort of denial-of-service. Usually, this is done by only allowing one alert at a time, and after the third time there is a checkbox to &quot;Prevent this page from crating additional dialogues&quot;. It seems that, for whatever reason, there is no limit to the number of concurrent popups one can create by harnessing the great power of the Geolocation API. That is, if you&#8217;re on Firefox; Chrome seems fine.</p>
+
+<p>If you&#8217;re on Firefox and you click the button bellow, making sure to allow location access, you&#8217;ll be flooded with alerts faster than you can close them. I recommend being sure that &quot;Don&#8217;t ask me again&quot; is <em>unchecked</em>, unless you want to spend a non-small amount of time fighting the cache to get your browser back. If you&#8217;re on Android, Firefox will crash if you don&#8217;t manage to close it first. The desktop client seems to handle it better, it collects the alert windows until you close the tab.</p>
+
+<p>I of course reported the bug, the ticket of which you can find <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=1627597'>here</a>, but it was marked WONTFIX. I found it pretty interesting, so I thought it share it with you, dear interneter. I hope you found this at least semi-interesting, until next time!</p>
+			<button onclick="ffcrash()">Crash Me!</button>
+		</main>
+		</article>
+	</body>
+</html>

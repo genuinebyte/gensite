@@ -14,3 +14,19 @@ p {
 	padding-bottom: 1rem;
 	line-height: 1.4;
 }
+
+figure {
+	text-align: center;
+	padding: 1rem;
+}
+
+figure img {
+	width: 80%;
+}
+
+figure figcaption {
+	display: inline-block;
+	color: var(--textcolor-alt);
+	padding: 0.5rem 12% 0px 12%;
+	font-size: 1rem;
+}
