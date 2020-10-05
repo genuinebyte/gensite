@@ -1,0 +1,59 @@
+html, body {
+	height: 100vh;
+}
+
+@media (max-width: 44rem) {
+	/* Modile target */
+	main, header, footer {
+		width: 100%;
+
+		padding: 0 1rem;
+		margin: 0 auto;
+	}
+
+	header {
+		padding: 1rem;
+	}
+}
+
+@media (min-width: 44rem) {
+	/* Desktop target */
+	main, header, footer {
+		display: block;
+
+		width: 40rem;
+
+		margin: 0 auto;
+	}
+
+	header {
+		padding: 1rem 0;
+	}
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+header h1 {
+	margin: 0;
+
+	font-size: 1.7rem;
+	font-variant: small-caps;
+}
+
+main h2, main h3, main p {
+	margin-bottom: 1rem;
+}
+
+main h2 {
+	padding-top: 1rem;
+
+	border-top: 1px solid var(--primary);
+
+	font-size: 1.3rem;
+}
+
+main h3 {
+	font-size: 1.3rem;
+}

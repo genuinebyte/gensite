@@ -4,92 +4,56 @@
 		<title>Gensite</title>
 		<link rel="icon" type="image/svg+xml" href="/vertex.svg">
 		<link rel="icon" type="image/png" href="/vertex.png">
-		<link rel="stylesheet" href="/styles/master.css">
-		<link rel="stylesheet" href="/styles/single.css">
-		<link rel="stylesheet" href="/styles/cards.css">
-		<link rel="stylesheet" href="/styles/postlist.css">
+		<link rel="stylesheet" href="/styles/main.css">
+		<link rel="stylesheet" href="/styles/layouts/single.css">
+		<link rel="stylesheet" href="/styles/components/showcase.css">
 	</head>
 	<body>
 		<article>
-		<header>
-			<h1 class="smallcap">Genuinebyte</h1>
-			<h2>Brad Alfirevic</h2>
-		</header>
-		<main>
-			<section class="grid">
-				<div class="card">
-					<h1>Social</h1>
-					<p>
-						<a href="https://twitter.com/genuinebyte">Twitter</a>
-						is for endless rambling
-					</p>
-					<p>
-						<a href="https://hub.sr.ht/~genbyte">Sourcehut</a>
-						Judge my code
-					</p>
-					<p>
-						<a href="https://github.com/genuinebyte">Github</a>
-						Code is on SourceHut
-					</p>
-					<!-- <p>
-						<a href="https://feline.social">Mastodon</a>
-						Decentralized ramblings
-					</p> !-->
-				</div>
-				<div class="card">
-					<h1>Tools</h1>
-					<p>
-						<a href="chemtool">Chemtool</a>
-						for the modern chemist
-					</p>
-					<p>
-						<a href="geohash">Geohash</a>
-						A geohashing utility
-					</p>
-				</div>
-				<div class="card long-card">
-					<h1>Software</h1>
-					<p>
-						<a href="https://git.sr.ht/~genbyte/confindent">Confindent</a>
-						A Rust crate for configuration in an indented format
-					</p>
-					<p>
-						<a href="https://git.sr.ht/~genbyte/bempline">Bempline</a>
-						A Rust crate for a new and simple template langauge.
-					</p>
-				</div>
-			</section>
-			<section id="posts">
-				<h1>Words</h1>
-				<!-- Template -->
-				<!-- {@template post}
-				<div>
-					<h2>[@date]</h2>
-					<a href="[@date]">[@title]</a>
-					<p>[@content]</p>
-				</div>
-				{@end-template post} -->
-				<div>
-					<h2>2020-08-06</h2>
-					<h1><a href="words/crashing-firefox.html">Crashing Firefox</a></h1>
-<p>
-A few months ago I was playing with the Geolocation API, and I accidentally
-found a denial-of-service in Firefox.
-</p>
+			<header>
+				<h1>Genbyte</h1>
+			</header>
+			<main>
+				<p>Just a space on the internet.</p>
 
-				</div>
-				<div>
-					<h2>2020-02-03</h2>
-					<h1><a href="words/initialized.html">Initialized</a></h1>
-<p>
-Well hello there! Thanks for coming! I fought with myself long and hard about
-the first words that would be on this internet word deliverer, and those are
-the best I got, so you know the rest of them will be good. I hope that's what
-you got out of it anyway.
-</p>
-				</div>
-			</section>
-		</main>
+				<h2>Some of the more useful things I've made:</h2>
+				<section class="showcase">
+					<div>
+						<h1><a href="https://github.com/genuinebyte/hext">Hext</a></h1>
+						<p>
+							A file format and command line tool for writing binary files in hex and
+							binary while allowing comments so you can keep it all straight.
+						</p>
+					</div>
+					<!--<div>
+						<h1>Gifed</h1>
+						<p>
+							A Rust crate that can parse gifs into their respective components and
+							frames. Oh, it also allows constructing gifs from raw color data.
+						</p>
+					</div>-->
+				</section>
+
+				<h2>Some things I've written:</h2>
+				<section class="showlist">
+					<div>
+						<h3>2020-08-06</h3>
+						<h1><a href="/words/crashing-firefox.html">Crashing Firefox</a></h1>
+						<p>
+							I was playing with the Geolocation API one day and I found a
+							denial-of-service of sorts.
+						</p>
+					</div>
+					<div>
+						<h3>2020-02-03</h3>
+						<h1><a href="/words/initialized.html">Initialized</a></h1>
+						<p>
+							Hello! Welcome to my website. This post details what you can expect here
+							and a little bit about who I am.
+						</p>
+					</div>
+				</section>
+			</main>
 		</article>
 	</body>
 </html>

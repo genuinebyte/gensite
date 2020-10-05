@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--primary: #000;
+		--primary-soft: #333;
+		--secondary: #FFF;
+		--secondary-soft: #CCC;
+	}
+}
+
+@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+	:root {
+		--primary: #DDD;
+		--primary-soft: #AAA;
+		--secondary: #000;
+		--secondary-soft: #333;
+	}
+}
+
+html {
+	background-color: var(--secondary);
+
+	font-family: sans-serif;
+	color: var(--primary);
+}
+
+body {
+	font-size: 1.1rem;
+	line-height: 1.25;
+}
+
+a {
+	border-bottom: 1px dashed var(--primary);
+
+	color: inherit;
+	text-decoration: none;
+}
+
+button, input[type=button] {
+	width: 100%;
+
+	padding: 0.5rem;
+
+	background-color: var(--secondary);
+	border: 1px solid var(--primary);
+
+	color: var(--primary);
+	font-size: inherit;
+}

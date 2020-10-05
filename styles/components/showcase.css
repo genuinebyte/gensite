@@ -1,0 +1,30 @@
+.showcase {
+	display: grid;
+	
+	grid-template-columns: 1fr 1fr;
+	column-gap: 1rem;
+	row-gap: 1rem;
+}
+
+.showcase h1, .showlist h1 {
+	margin-bottom: 0.5rem;
+
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+.showcase h1 {
+	font-variant: small-caps;
+}
+
+.showlist h1 {
+	font-variant: normal;
+}
+
+.showlist h3 {
+	margin: 0;
+
+	color: var(--primary-soft);
+	font-size: 0.9rem;
+	font-weight: bold;
+}
