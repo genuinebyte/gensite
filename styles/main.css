@@ -52,3 +52,7 @@ button, input[type=button] {
 	color: var(--primary);
 	font-size: inherit;
 }
+
+ul {
+	list-style: inside;
+}

@@ -1,0 +1,13 @@
+#controls {
+	display: grid;
+
+	margin: 1rem 0;
+
+	grid-template-columns: 1fr 1fr;
+	column-gap: 1rem;
+	row-gap: 1rem;
+}
+
+#kentPattern-moveUp, #kentPattern-moveDown, #kentPattern-fullscreen {
+	grid-column: 1 / 3;
+}

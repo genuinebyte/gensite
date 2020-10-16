@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@genuinebyte">
+		<meta name="twitter:creator" content="@genuinebyte">
+		<meta name="twitter:title" content="Initialized">
+		<meta name="twitter:description" content="Hello, Internet!">
+		<meta name="twitter:image" content="https://genbyte.dev/vertex.png">
+		<title>Kent Pattern</title>
+		<link rel="icon" type="image/svg+xml" href="/vertex.svg">
+		<link rel="icon" type="image/png" href="/vertex.png">
+		<link rel="stylesheet" href="/styles/main.css">
+		<link rel="stylesheet" href="/styles/layouts/single.css">
+		<link rel="stylesheet" href="/styles/layouts/post.css">
+
+		<link rel="stylesheet" href="style.css">
+		<script src="kent-pattern.js"></script>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h1>The Kent Pattern</h1>
+				<h2>A fractal-ish pattern of maths fun</h2>
+			</header>
+		<main>
+			<p>I was shown the <a href="https://docs.google.com/spreadsheets/d/1ZizN2ixtwMnGtSsSq-rKRs-51RaqBj8p5iKRxB8yQtE/edit?usp=sharing">original</a> and when I zoomed out of the masterfully
+			constructed spreadsheet, my computer was unhappy. I asked if I could
+			reimplement it in Javascript (for speed and fun) and the result of the yes
+			is below. Enjoy!</p>
+			
+			<p>You can <strong>zoom</strong> with the <strong>scroll wheel</strong>. Zooming out when fullscreen can really slow things down,
+			so maybe be careful with that.</p>
+			
+			<p>You can <strong>pan</strong> by <strong>clicking and dragging</strong> the mouse. You can&#8217;t go left of the starting position
+			because of the way the pattern is drawn. Eventually you&#8217;ll be able to go above where you start, but
+			you cannot yet do that.</p>
+			
+			<p>There are button controls below the pattern if for some reason your mouse isn&#8217;t working. This is
+			useful for mobile devices because <em>touch isn&#8217;t implemented yet</em>. Yet.</p>
+			<!-- Set the height to 20rem so it looks resonably sized until the script sets it to half the width -->
+			<canvas id="pattern" style="width: 100%; height: 20rem; border: 1px solid var(--primary)"></canvas>
+			<section id="controls">
+				<button id="kentPattern-fullscreen">Fullscreen</button>
+				<button id="kentPattern-zoomIn">Zoom In</button>
+				<button id="kentPattern-zoomOut">Zoom Out</button>
+				<button id="kentPattern-moveUp">Move Up</button>
+				<button id="kentPattern-moveLeft">Move Left</button>
+				<button id="kentPattern-moveRight">Move Right</button>
+				<button id="kentPattern-moveDown">Move Down</button>
+			</section>
+			<script defer>
+				let kentPatternUI = new KentPatternUI("pattern", true, true, false);
+				kentPatternUI.setAspectRatio(2);
+			</script>
+			<p>Here are some things that I&#8217;d like to eventually implement:</p>
+
+			<ul>
+			<li>Bases other than 2 with support for changing the colors of the numbers</li>
+			
+			<li>Proper touch support.</li>
+			
+			<li>Custom sequences for the starting, top row.</li>
+			
+			<li>Panning above the top of the starting position.</li>
+			</ul>
+
+			<p>If you&#8217;d like to check out the source code, which I am decently proud of, you can see it
+			<a href="https://github.com/genuinebyte/gensite/things/kent-pattern">here</a>.</p>				
+		</main>
+		</article>
+	</body>
+</html>
