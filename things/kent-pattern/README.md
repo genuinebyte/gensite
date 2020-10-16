@@ -26,4 +26,4 @@ Here are some things that I'd like to eventually implement:
 If you'd like to check out the source code, which I am decently proud of, you can see it
 [here][src].
 
-[src]: https://github.com/genuinebyte/gensite/things/kent-pattern
+[src]: https://github.com/genuinebyte/gensite/tree/main/things/kent-pattern
